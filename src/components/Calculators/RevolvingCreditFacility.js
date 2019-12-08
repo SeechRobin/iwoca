@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react'
 const RevolvingCreditFacility = () => {
     return (
     <Container>
-     Revolving Credit Facility
+        Revolving Credit Facility
     </Container>
     );
   };

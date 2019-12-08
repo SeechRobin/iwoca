@@ -1,0 +1,1 @@
+export const UPFRONT_FEES_PERCENTAGE = 0.1 ;
