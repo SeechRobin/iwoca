@@ -20,7 +20,7 @@ const BusinessLoan = ({loanTerms, rules}) => {
                            : [];
     
     const handleChange = (event) => {
-        setInterestRate(parseInt(10,event.target.value));
+        setInterestRate(parseFloat(event.target.value));
     } 
     
     return (
