@@ -8,13 +8,14 @@ describe('<LoanTable />', () => {
     let wrapper;
     
     const loanPayments  = [
-        { readingDate: "2017-03-28T00:00:00.000Z", cumulative: 17580, unit: "kWh" },
-        { readingDate: "2017-04-15T00:00:00.000Z", cumulative: 17759, unit: "kWh" },
-        { readingDate: "2017-05-08T00:00:00.000Z", cumulative: 18002, unit: "kWh" },
-    ]
+         { date: "09/12/2019", principal: 2500, interest: 1000, totalRepayment: 3500 },
+         { date: "09/01/2020", principal: 2500, interest: 0, totalRepayment: 2500 },
+         { date: "09/02/2020", principal: 2500, interest: 0, totalRepayment: 2500 },
+         { date: "09/03/2020", principal: 2500, interest: 0, totalRepayment: 2500 },
+    ];
 
 	beforeEach(() => {
-		const { container } = render(<LoanTable loanPayments={[]} />);
+		const { container } = render(<LoanTable loanPayments={loanPayments} />);
      	wrapper = container;
 	});
   
@@ -25,6 +26,12 @@ describe('<LoanTable />', () => {
 	it('should render without 💥', () => {
 		const { container } = render(<LoanTable loanPayments={[]} />);
 		expect(container).toBeTruthy();
+    });
+    
+    it('renders 4 <tr> tags', () => {
+		const th = wrapper.getElementsByTagName('tr');
+		expect(th.length).toBe(4);
 	});
+  
   
   });

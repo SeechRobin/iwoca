@@ -19,9 +19,7 @@ export const loanCalculator = (loanTerms, interestRate, type)  => {
     let repayments = [];
 
     for(let i=0; i<loanTerms.duration; i++){
-        console.log((interestRate/100),  amountLeftToPay );
         const interest = ((interestRate/100) * amountLeftToPay) + ( i === 0 && type === BUSINESS_LOAN ? (amount * UPFRONT_FEES_PERCENTAGE) : 0 );
-        // console.log(interest);
         const totalRepayment = principal + interest;
 
         repayments.push({

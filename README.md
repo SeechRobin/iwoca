@@ -7,6 +7,9 @@ The webapp is deployed on Netlify [https://iwoca-calculators.netlify.com/](https
 
 ## Approach
 
+I used Semantic UI to speed up my development and not reinvent the wheel. I utelised the `GRID` and `Table` components.
+I used a modular approach and re-used some of the functionality between the calculators. As part of the skeleton i also have routing and a `PageTemplate` for rendering the pages.
+
 
 
 ## Setup
@@ -35,5 +38,6 @@ I used [yarn](https://yarnpkg.com/lang/en/docs/install/) to manage dependencies 
 * More tests
 * More validations
 * More styling
+* Show user why the selected loan is not allowed
 
 

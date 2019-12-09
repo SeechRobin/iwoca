@@ -46,7 +46,7 @@ const Dashboard = () => {
         </Grid>
       </div>
       
-      <Grid  className="calculators" columns={2}>
+      <Grid  stackable className="calculators" columns={2}>
         <Grid.Column>
             <RevolvingCreditFacility 
               loanTerms={loanTerms} 

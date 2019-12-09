@@ -25,9 +25,10 @@ const BusinessLoan = ({loanTerms, rules}) => {
     
     return (
         <React.Fragment> 
+          <h2>Business Loan</h2>
           <Input 
             type="number" 
-            label="Interest rate" 
+            label="Interest rate %" 
             name="interest-rate" 
             error={false} 
             onChange={handleChange} 
@@ -40,7 +41,6 @@ const BusinessLoan = ({loanTerms, rules}) => {
                 <Totals loanPayments={loanPayments} />
             </Table.Body>
           </Table>
-          <h2>Business Loan</h2>
         </React.Fragment>
     );
   };
