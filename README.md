@@ -2,20 +2,20 @@
 
 ## Overview
 
-I completed the project in about 5hrs, i've listed my approach and the structure below. 
-The webapp is deployed on [Netlify](https://iwoca-calculators.netlify.com/)
+I completed the project in about 5hrs, I've listed my approach and the structure below. 
+The webapp was deployed on [Netlify](https://iwoca-calculators.netlify.com/)
 
 ## Approach
 
-I went for a modular, functional and easilty testable approach with good separation of concerns.
+I went for a modular, functional, and easily testable approach with good separation of concerns.
 
-I used Semantic UI to speed up my development and not reinvent the wheel. I utilised the `GRID` and `Table` components.
-I used a modular approach and re-used some of the functionality between the calculators. As part of the skeleton I also have routing and a `PageTemplate` for rendering the pages. I just treated it as an app going into production.
+I used Semantic UI to speed up my development and not reinvent the wheel. I utilized the `GRID` and `Table` components.
+I used a modular approach and reused some of the functionality between the calculators. As part of the skeleton, I also have routing and a `PageTemplate` for rendering the pages. I just treated it as an app going into production.
 
 I have also passed the product rules from the endpoint, and the calculators behave within bounds of those rules.
-I tested the core business logic, which the `loanCalculator` module with calculation function. I also added vital tests on the `LoanTable` which shows the customer the number of payments they have to make.
+I tested the core business logic, which the `loanCalculator` module with a calculation function. I also added vital tests on the `LoanTable`, which shows the customer the number of payments they have to make.
 
-The Payment dates are starting from the day the user inputs the data, this is the assumption i used as there was no specification in the requirements. But that can easily be configured.
+The Payment dates are starting from the day the user inputs the data; this is the assumption I used as there was no specification in the requirements. But that can easily be configured.
 
 
 ## Setup
