@@ -3,13 +3,12 @@
 ## Overview
 
 I completed the project in about 5hrs, i've listed my approach and the structure below. 
-The webapp is deployed on Netlify [https://iwoca-calculators.netlify.com/](https://iwoca-calculators.netlify.com/)
+The webapp is deployed on [https://iwoca-calculators.netlify.com/](Netlify)
 
 ## Approach
 
 I used Semantic UI to speed up my development and not reinvent the wheel. I utelised the `GRID` and `Table` components.
 I used a modular approach and re-used some of the functionality between the calculators. As part of the skeleton i also have routing and a `PageTemplate` for rendering the pages.
-
 
 
 ## Setup
