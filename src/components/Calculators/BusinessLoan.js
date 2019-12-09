@@ -1,52 +1,46 @@
 import React from 'react';
 import { Table, Input } from 'semantic-ui-react'
 
-import { businessLoanCalculator } from '../../helpers/loanCalculators';
+import { loanCalculator, checkLoanRules } from '../../helpers/loanCalculator';
+import { BUSINESS_LOAN } from '../../constants';
 
-const BusinessLoan = ({loanTerms}) => {
+import TableHeader from '../TableHeader/TableHeader';
+import LoanTable from '../LoanTable/LoanTable';
+import Totals from '../LoanTable/Totals';
+
+const BusinessLoan = ({loanTerms, rules}) => {
 
     const [interestRate, setInterestRate] = React.useState(null);
+  
+    const isActive = rules ?  !checkLoanRules(loanTerms, rules) : true;
+  
+    const loanPayments = rules ? 
+                            checkLoanRules(loanTerms, rules) ? 
+                                loanCalculator(loanTerms, interestRate, BUSINESS_LOAN) : []
+                           : [];
     
     const handleChange = (event) => {
         setInterestRate(parseInt(10,event.target.value));
     } 
-
-    const loanPayments = businessLoanCalculator(loanTerms, interestRate);
     
     return (
         <React.Fragment> 
-          <Input type="number" label="Interest rate" name="interest-rate" error={false} onChange={handleChange} />
+          <Input 
+            type="number" 
+            label="Interest rate" 
+            name="interest-rate" 
+            error={false} 
+            onChange={handleChange} 
+            disabled={isActive}
+          />
           <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Repayment date</Table.HeaderCell>
-                <Table.HeaderCell>Principal</Table.HeaderCell>
-                <Table.HeaderCell>Interest</Table.HeaderCell>
-                <Table.HeaderCell>Total repayment</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-        
+            <TableHeader />
             <Table.Body>
-              <Table.Row>
-                <Table.Cell>30/06/2019</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>30/07/2019</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>30/08/2019</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-                <Table.Cell>Cell</Table.Cell>
-              </Table.Row>
+                <LoanTable loanPayments={loanPayments} />
+                <Totals loanPayments={loanPayments} />
             </Table.Body>
           </Table>
+          <h2>Business Loan</h2>
         </React.Fragment>
     );
   };

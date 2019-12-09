@@ -1,10 +1,12 @@
 import React from 'react';
-import { Grid, Container, Input } from 'semantic-ui-react'
+import { Grid, Container, Input, Label } from 'semantic-ui-react'
 
 import BusinessLoan from '../Calculators/BusinessLoan';
 import RevolvingCreditFacility from '../Calculators/RevolvingCreditFacility';
 
 import * as api from "../../helpers/api/api";
+
+import './_dashboard.scss';
 
 const Dashboard = () => {
 
@@ -30,16 +32,29 @@ const Dashboard = () => {
   } 
 
     return (
-    <Container>
+    <Container className="dashboard">
       <h1> Your Loan</h1>
-      <Input type="number" label="Amount" maxLength="100" name="amount" onChange={handleChange} />
-      <Input type="number" label="Duration" name="duration" onChange={handleChange}/>
-      <Grid columns={2}>
+      <div className="loan-terms">
+        <Grid centered>
+            <Input type="number" label="Amount" name="amount" onChange={handleChange} />
+            <Label pointing="left"> £</Label>
+            <Input type="number" label="Duration" name="duration" onChange={handleChange}/>
+            <Label pointing="left"> months </Label>
+        </Grid>
+      </div>
+      
+      <Grid  className="calculators" columns={2}>
         <Grid.Column>
-            <BusinessLoan loanTerms={loanTerms}/>
+            <RevolvingCreditFacility 
+              loanTerms={loanTerms} 
+              rules={loanRules.revolving_credit_facility}
+            />
         </Grid.Column>
         <Grid.Column>
-            <RevolvingCreditFacility />
+            <BusinessLoan 
+                loanTerms={loanTerms}
+                rules={loanRules.business_loan}
+            />
         </Grid.Column>
       </Grid>
     </Container>
