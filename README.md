@@ -3,7 +3,7 @@
 ## Overview
 
 I completed the project in about 5hrs, I've listed my approach and the structure below. 
-The webapp was deployed on [Netlify](https://iwoca-calculators.netlify.com/)
+The webapp is deployed on [Netlify](https://iwoca-calculators.netlify.com/)
 
 ## Approach
 
