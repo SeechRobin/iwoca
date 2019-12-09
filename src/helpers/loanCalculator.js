@@ -12,9 +12,6 @@ import { getCurrentDate, getNextMonth } from './utils';
  * @returns {Array}
  */
 export const loanCalculator = (loanTerms, interestRate, type)  => {
-    console.log(loanTerms, interestRate);
-    console.log(type);
-
     const {amount, duration} = loanTerms;
 
     const principal = amount/duration;
@@ -22,7 +19,9 @@ export const loanCalculator = (loanTerms, interestRate, type)  => {
     let repayments = [];
 
     for(let i=0; i<loanTerms.duration; i++){
-        const interest = (interestRate/100) * amountLeftToPay + ( i === 0 && type === BUSINESS_LOAN ? (amount * UPFRONT_FEES_PERCENTAGE) : 0 );
+        console.log((interestRate/100),  amountLeftToPay );
+        const interest = ((interestRate/100) * amountLeftToPay) + ( i === 0 && type === BUSINESS_LOAN ? (amount * UPFRONT_FEES_PERCENTAGE) : 0 );
+        // console.log(interest);
         const totalRepayment = principal + interest;
 
         repayments.push({
@@ -33,7 +32,6 @@ export const loanCalculator = (loanTerms, interestRate, type)  => {
         })
         amountLeftToPay = amountLeftToPay - principal;
     }  
-    console.log(repayments);
     return repayments;
 }
 

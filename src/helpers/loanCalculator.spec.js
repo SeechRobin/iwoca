@@ -1,6 +1,5 @@
 import {
     loanCalculator,
-    checkLoanRules,
 } from './loanCalculator';
 import { BUSINESS_LOAN, REVOLVING_CREDIT_FACIITY } from '../constants';
 

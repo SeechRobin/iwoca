@@ -21,6 +21,9 @@ const Dashboard = () => {
     api.getLoanRules()
     .then(response => {
         setLoanRules(response);
+    })
+    .catch(err => {
+        console.log(err);
     });
   }, []);
 
