@@ -30,7 +30,7 @@ The main dependencies are listed below.
 * [Semantic-UI](https://react.semantic-ui.com/) design system
 
 
-I used [yarn](https://yarnpkg.com/lang/en/docs/install/) to manage dependencies and we run node 8.9.x.
+I used [yarn](https://yarnpkg.com/lang/en/docs/install/) to manage dependencies.
 
 ## Commands
 
